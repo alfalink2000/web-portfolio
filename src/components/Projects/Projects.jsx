@@ -1,68 +1,122 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-
 import "../../styles/Projects/Projects.css";
 
-export const Projects = () => {
+export const Projects = ({ language }) => {
   const [expandedProject, setExpandedProject] = useState(null);
 
   const toggleDetails = (projectId) => {
     setExpandedProject(expandedProject === projectId ? null : projectId);
   };
 
-  const projects = [
-    {
-      id: 1,
-      title: "Blog Personal",
-      description:
-        "Tu espacio en internet para compartir ideas, proyectos o contenido profesional",
-      images: ["/assets/images/p1.png", "/assets/images/p1-1.png"],
-      details: "Desarrollo de blogs a medida con:",
-      features: [
-        "Diseño limpio y minimalista adaptable a móviles",
-        "Editor sencillo (como Word) para publicar sin complicaciones",
-        "Organización por categorías y etiquetas intuitivas",
-        "Integración básica con redes sociales",
-        "Optimización para motores de búsqueda (SEO)",
-      ],
-      offer:
-        "Creo blogs rápidos y funcionales para quienes necesitan empezar con un sitio profesional, sin costos ocultos ni mantenimiento complejo.",
-    },
-    {
-      id: 2,
-      title: "Tienda Online",
-      description:
-        "Vende productos o servicios con una plataforma autogestionable",
-      images: ["/assets/images/p2.png", "/assets/images/p2-2.jpg"],
-      details: "Solución completa para comercio electrónico:",
-      features: [
-        "Catálogo de productos con filtros y búsqueda inteligente",
-        "Carrito de compras que guarda los items incluso al cerrar la sesión",
-        "Pagos en línea seguros (Stripe, PayPal, Mercado Pago)",
-        "Panel de control para añadir productos, ver pedidos y gestionar clientes",
-        "Sistema de promociones y descuentos personalizables",
-      ],
-      offer:
-        "Desarrollo tiendas online listas para vender, con capacitación incluida para que administres todo tú mismo.",
-    },
-    {
-      id: 3,
-      title: "Tracker de Criptomonedas",
-      description:
-        "Monitoriza precios, tendencias y tus inversiones en el mercado crypto",
-      images: ["/assets/images/p3.png", "/assets/images/p3-1.png"],
-      details: "Aplicación web con datos en tiempo real:",
-      features: [
-        "Cotizaciones actualizadas de +1000 criptomonedas",
-        "Gráficos interactivos (1h, 24h, 1 semana, etc.)",
-        "Alertas personalizables por email o notificaciones",
-        "Simulador de portafolio para seguir tus activos",
-        "Noticias y eventos relevantes del mercado",
-      ],
-      offer:
-        "Creo dashboards crypto a medida para inversores o entusiastas, con conexión a APIs confiables y diseño intuitivo.",
-    },
-  ];
+  const projects = {
+    es: [
+      {
+        id: 1,
+        title: "Blog Personal",
+        description:
+          "Tu espacio en internet para compartir ideas, proyectos o contenido profesional",
+        images: ["/assets/images/p1.png", "/assets/images/p1-1.png"],
+        details: "Desarrollo de blogs a medida con:",
+        features: [
+          "Diseño limpio y minimalista adaptable a móviles",
+          "Editor sencillo (como Word) para publicar sin complicaciones",
+          "Organización por categorías y etiquetas intuitivas",
+          "Integración básica con redes sociales",
+          "Optimización para motores de búsqueda (SEO)",
+        ],
+        offer:
+          "Creo blogs rápidos y funcionales para quienes necesitan empezar con un sitio profesional, sin costos ocultos ni mantenimiento complejo.",
+      },
+      {
+        id: 2,
+        title: "Tienda Online",
+        description:
+          "Vende productos o servicios con una plataforma autogestionable",
+        images: ["/assets/images/p2.png", "/assets/images/p2-2.jpg"],
+        details: "Solución completa para comercio electrónico:",
+        features: [
+          "Catálogo de productos con filtros y búsqueda inteligente",
+          "Carrito de compras que guarda los items incluso al cerrar la sesión",
+          "Pagos en línea seguros (Stripe, PayPal, Mercado Pago)",
+          "Panel de control para añadir productos, ver pedidos y gestionar clientes",
+          "Sistema de promociones y descuentos personalizables",
+        ],
+        offer:
+          "Desarrollo tiendas online listas para vender, con capacitación incluida para que administres todo tú mismo.",
+      },
+      {
+        id: 3,
+        title: "Tracker de Criptomonedas",
+        description:
+          "Monitoriza precios, tendencias y tus inversiones en el mercado crypto",
+        images: ["/assets/images/p3.png", "/assets/images/p3-1.png"],
+        details: "Aplicación web con datos en tiempo real:",
+        features: [
+          "Cotizaciones actualizadas de +1000 criptomonedas",
+          "Gráficos interactivos (1h, 24h, 1 semana, etc.)",
+          "Alertas personalizables por email o notificaciones",
+          "Simulador de portafolio para seguir tus activos",
+          "Noticias y eventos relevantes del mercado",
+        ],
+        offer:
+          "Creo dashboards crypto a medida para inversores o entusiastas, con conexión a APIs confiables y diseño intuitivo.",
+      },
+    ],
+    en: [
+      {
+        id: 1,
+        title: "Personal Blog",
+        description:
+          "Your space on the internet to share ideas, projects or professional content",
+        images: ["/assets/images/p1.png", "/assets/images/p1-1.png"],
+        details: "Custom blog development with:",
+        features: [
+          "Clean, minimalist mobile-responsive design",
+          "Simple editor (like Word) for easy publishing",
+          "Intuitive organization with categories and tags",
+          "Basic social media integration",
+          "Search engine optimization (SEO)",
+        ],
+        offer:
+          "I create quick, functional blogs for those who need to start with a professional site, with no hidden costs or complex maintenance.",
+      },
+      {
+        id: 2,
+        title: "Online Store",
+        description:
+          "Sell products or services with a self-manageable platform",
+        images: ["/assets/images/p2.png", "/assets/images/p2-2.jpg"],
+        details: "Complete e-commerce solution:",
+        features: [
+          "Product catalog with filters and smart search",
+          "Shopping cart that saves items even after session ends",
+          "Secure online payments (Stripe, PayPal, Mercado Pago)",
+          "Dashboard to add products, view orders and manage customers",
+          "Customizable promotions and discounts system",
+        ],
+        offer:
+          "I develop ready-to-sell online stores with included training so you can manage everything yourself.",
+      },
+      {
+        id: 3,
+        title: "Cryptocurrency Tracker",
+        description:
+          "Monitor prices, trends and your investments in the crypto market",
+        images: ["/assets/images/p3.png", "/assets/images/p3-1.png"],
+        details: "Web application with real-time data:",
+        features: [
+          "Updated quotes for 1000+ cryptocurrencies",
+          "Interactive charts (1h, 24h, 1 week, etc.)",
+          "Customizable alerts via email or notifications",
+          "Portfolio simulator to track your assets",
+          "Relevant market news and events",
+        ],
+        offer:
+          "I create custom crypto dashboards for investors or enthusiasts, with reliable API connections and intuitive design.",
+      },
+    ],
+  };
 
   const designSamples = [
     [
@@ -85,6 +139,35 @@ export const Projects = () => {
       "../../../public/assets/images/carr12.png",
     ],
   ];
+
+  const texts = {
+    title: language === "es" ? "Mis Proyectos" : "My Projects",
+    designsTitle:
+      language === "es"
+        ? "Variedad de Diseños para tu Proyecto"
+        : "Variety of Designs for your Project",
+    designsHighlight: language === "es" ? "Proyecto" : "Project",
+    designsDescription:
+      language === "es"
+        ? "Selecciona entre múltiples estilos y diseños modernos para tu sitio web. Cada diseño es completamente personalizable para adaptarse a tu marca y necesidades."
+        : "Choose from multiple modern styles and designs for your website. Each design is fully customizable to fit your brand and needs.",
+    designFeatures:
+      language === "es"
+        ? [
+            "Diseños responsivos que se adaptan a cualquier dispositivo",
+            "Estilos modernos y minimalistas",
+            "Efectos de animación sutiles para mejor experiencia de usuario",
+            "Paletas de colores personalizables",
+            "Tipografías modernas y legibles",
+          ]
+        : [
+            "Responsive designs that adapt to any device",
+            "Modern and minimalist styles",
+            "Subtle animation effects for better user experience",
+            "Customizable color palettes",
+            "Modern and readable typography",
+          ],
+  };
 
   // Animaciones
   const cardAnimation = {
@@ -110,7 +193,6 @@ export const Projects = () => {
   };
 
   // Componente de Carrusel Automático
-
   const AutoCarousel = ({ images, direction = "right", speed = 10 }) => {
     const extendedImages =
       direction === "right"
@@ -189,7 +271,7 @@ export const Projects = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          Mis Proyectos
+          {texts.title}
         </motion.h2>
 
         <div className="contenedor">
@@ -200,7 +282,7 @@ export const Projects = () => {
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            {projects.map((project) => (
+            {projects[language].map((project) => (
               <motion.div
                 key={project.id}
                 className="project-card"
@@ -224,14 +306,14 @@ export const Projects = () => {
                 >
                   <motion.img
                     src={project.images[0]}
-                    alt={`Captura 1 de ${project.title}`}
+                    alt={`Screenshot 1 of ${project.title}`}
                     className="main-image"
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.3 }}
                   />
                   <motion.img
                     src={project.images[1]}
-                    alt={`Captura 2 de ${project.title}`}
+                    alt={`Screenshot 2 of ${project.title}`}
                     className="secondary-image"
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.3 }}
@@ -317,8 +399,12 @@ export const Projects = () => {
                     transition={{ duration: 0.2 }}
                   >
                     {expandedProject === project.id
-                      ? "Ver menos"
-                      : "Ver detalles"}
+                      ? language === "es"
+                        ? "Ver menos"
+                        : "Show less"
+                      : language === "es"
+                      ? "Ver detalles"
+                      : "View details"}
                   </motion.button>
                 </motion.div>
               </motion.div>
@@ -344,8 +430,8 @@ export const Projects = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="designs-title"
             >
-              Variedad de Diseños para tu <br />{" "}
-              <span className="text-blue">Proyecto</span>
+              {texts.designsTitle} <br />{" "}
+              <span className="text-blue">{texts.designsHighlight}</span>
             </motion.h2>
             <motion.p
               initial={{ opacity: 0 }}
@@ -353,9 +439,7 @@ export const Projects = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              Selecciona entre múltiples estilos y diseños modernos para tu
-              sitio web. Cada diseño es completamente personalizable para
-              adaptarse a tu marca y necesidades.
+              {texts.designsDescription}
             </motion.p>
             <motion.ul
               className="design-features"
@@ -364,50 +448,21 @@ export const Projects = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.6 }}
             >
-              <motion.li
-                initial={{ x: -20, opacity: 0 }}
-                whileInView={{ x: 0, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: 0.7 }}
-              >
-                Diseños responsivos que se adaptan a cualquier dispositivo
-              </motion.li>
-              <motion.li
-                initial={{ x: -20, opacity: 0 }}
-                whileInView={{ x: 0, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: 0.8 }}
-              >
-                Estilos modernos y minimalistas
-              </motion.li>
-              <motion.li
-                initial={{ x: -20, opacity: 0 }}
-                whileInView={{ x: 0, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: 0.9 }}
-              >
-                Efectos de animación sutiles para mejor experiencia de usuario
-              </motion.li>
-              <motion.li
-                initial={{ x: -20, opacity: 0 }}
-                whileInView={{ x: 0, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: 1.0 }}
-              >
-                Paletas de colores personalizables
-              </motion.li>
-              <motion.li
-                initial={{ x: -20, opacity: 0 }}
-                whileInView={{ x: 0, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: 1.1 }}
-              >
-                Tipografías modernas y legibles
-              </motion.li>
+              {texts.designFeatures.map((feature, index) => (
+                <motion.li
+                  key={index}
+                  initial={{ x: -20, opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0.7 + index * 0.1 }}
+                >
+                  {feature}
+                </motion.li>
+              ))}
             </motion.ul>
           </div>
 
-          {/* 4. Contenedor de carruseles con nuevo diseño */}
+          {/* Contenedor de carruseles con nuevo diseño */}
           <div className="auto-carousels-wrapper">
             <div className="auto-carousels-frame">
               {/* Carrusel superior - derecha */}
