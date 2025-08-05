@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  line-height: 1.6;
+  background: linear-gradient(135deg, #f5f7ff 0%, #f0f4ff 100%);
+  color: #333;
+}
+
+.app {
+  margin: 0 auto;
+}
+
+:root {
+  --primary-color: #6e8efb;
+  --secondary-color: #a777e3;
+}
+
+/* Scroll suave para todo el documento */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Ajuste para evitar que el navbar cubra el contenido */
+section {
+  scroll-margin-top: 80px;
+}

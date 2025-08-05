@@ -1,0 +1,138 @@
+.compact-footer {
+  background: #2c3e50;
+  color: #fff;
+  padding: 2rem 1rem;
+  font-family: "Inter", sans-serif;
+  font-size: 0.9rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-sphere {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(110, 142, 251, 0.1);
+  z-index: 0;
+}
+
+.sphere-left {
+  width: 150px;
+  height: 150px;
+  top: -50px;
+  left: -50px;
+}
+
+.sphere-right {
+  width: 200px;
+  height: 200px;
+  bottom: -80px;
+  right: -50px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-column h4 {
+  color: #4cc9f0;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  position: relative;
+}
+
+.contact-section-footer::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  right: -30px;
+  width: 100px;
+  height: 100px;
+  background: rgba(110, 142, 251, 0.08);
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.social-section::after {
+  content: "";
+  position: absolute;
+  bottom: -30px;
+  left: -20px;
+  width: 80px;
+  height: 80px;
+  background: rgba(110, 142, 251, 0.08);
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.contact-list,
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  position: relative;
+}
+
+.contact-link,
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #e0e0e0;
+  text-decoration: none;
+  transition: color 0.2s;
+  position: relative;
+  z-index: 1;
+}
+
+.contact-link:hover,
+.social-link:hover {
+  color: #4cc9f0;
+}
+
+.contact-link svg,
+.social-link svg {
+  font-size: 1.2rem;
+  min-width: 20px;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.8rem;
+  color: #aaa;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-bottom p {
+  margin: 0.3rem 0;
+}
+
+@media (max-width: 600px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .compact-footer {
+    padding: 1.5rem 1rem;
+  }
+
+  .sphere-left,
+  .sphere-right {
+    opacity: 0.5;
+  }
+}
