@@ -181,6 +181,7 @@ export const ReactAdvantages = ({ language }) => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ type: "spring", stiffness: 300 }}
+              translate="no"
             >
               React
             </motion.span>{" "}

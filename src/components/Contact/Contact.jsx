@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import {
   FaPaperPlane,
@@ -78,10 +78,6 @@ export const Contact = ({ language }) => {
     },
   };
 
-  useEffect(() => {
-    emailjs.init("W66pdX8ZR2wekMIgC");
-  }, []);
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -118,63 +114,36 @@ export const Contact = ({ language }) => {
       confirmButtonText: texts.success.button,
       timer: 3000,
       timerProgressBar: true,
-      didOpen: () => {
-        const popup = Swal.getPopup();
-        popup.style.animation = "swal2-show 0.3s";
-      },
-      willClose: () => {
-        const popup = Swal.getPopup();
-        popup.style.animation = "swal2-hide 0.3s";
-      },
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (validateForm()) {
-      setIsSubmitting(true);
+    if (!validateForm()) return;
 
+    setIsSubmitting(true);
+
+    try {
       const serviceID = "service_8o3gsx1";
       const templateID = "template_ubo2xim";
       const userID = "W66pdX8ZR2wekMIgC";
 
-      const formElement = document.createElement("form");
+      // Usamos el formulario actual en lugar de crear uno temporal
+      await emailjs.sendForm(serviceID, templateID, e.target, userID);
 
-      const fields = {
-        from_name: formData.from_name,
-        from_email: formData.from_email,
-        message: formData.message,
-      };
-
-      Object.entries(fields).forEach(([name, value]) => {
-        const input = document.createElement("input");
-        input.type = "hidden";
-        input.name = name;
-        input.value = value;
-        formElement.appendChild(input);
+      showSuccessAlert();
+      setFormData({ from_name: "", from_email: "", message: "" });
+    } catch (error) {
+      console.error("Error sending email:", error);
+      MySwal.fire({
+        title: texts.error.title,
+        text: error.text || texts.error.text,
+        icon: "error",
+        confirmButtonColor: "#4f46e5",
       });
-
-      document.body.appendChild(formElement);
-
-      emailjs
-        .sendForm(serviceID, templateID, formElement, userID)
-        .then(() => {
-          showSuccessAlert();
-          setFormData({ from_name: "", from_email: "", message: "" });
-        })
-        .catch((error) => {
-          MySwal.fire({
-            title: texts.error.title,
-            text: error.text || texts.error.text,
-            icon: "error",
-            confirmButtonColor: "#4f46e5",
-          });
-        })
-        .finally(() => {
-          setIsSubmitting(false);
-          document.body.removeChild(formElement);
-        });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
