@@ -181,5 +181,8 @@
   "bugs": {
     "url": "https://github.com/alfalink2000/my-portfolio-web/issues"
   },
-  "homepage": "https://github.com/alfalink2000/web-portfolio.git"
+  "homepage": "https://github.com/alfalink2000/web-portfolio.git",
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.7.0"
+  }
 }

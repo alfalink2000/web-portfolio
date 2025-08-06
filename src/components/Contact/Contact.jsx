@@ -104,8 +104,8 @@ export const Contact = ({ language }) => {
 
   const showSuccessAlert = () => {
     MySwal.fire({
-      title: <strong>{texts.success.title}</strong>,
-      html: <p>{texts.success.text}</p>,
+      title: texts.success.title,
+      text: texts.success.text,
       icon: "success",
       background: "#ffffff",
       color: "#333333",
@@ -129,26 +129,55 @@ export const Contact = ({ language }) => {
       const templateID = "template_ubo2xim";
       const userID = "W66pdX8ZR2wekMIgC";
 
-      // Crear un objeto con los datos del formulario
-      const templateParams = {
-        from_name: formData.from_name,
-        from_email: formData.from_email,
-        message: formData.message,
-      };
+      const response = await emailjs.send(
+        serviceID,
+        templateID,
+        {
+          from_name: formData.from_name,
+          from_email: formData.from_email,
+          message: formData.message,
+        },
+        userID
+      );
 
-      // Usar emailjs.send en lugar de emailjs.sendForm para evitar manipulación del DOM
-      await emailjs.send(serviceID, templateID, templateParams, userID);
-
-      showSuccessAlert();
-      setFormData({ from_name: "", from_email: "", message: "" });
+      if (response.status === 200) {
+        showSuccessAlert();
+        setFormData({ from_name: "", from_email: "", message: "" });
+      }
     } catch (error) {
       console.error("Error sending email:", error);
-      MySwal.fire({
-        title: texts.error.title,
-        text: error.text || texts.error.text,
-        icon: "error",
-        confirmButtonColor: "#4f46e5",
-      });
+
+      try {
+        const formDataToSend = new URLSearchParams();
+        formDataToSend.append("service_id", "service_8o3gsx1");
+        formDataToSend.append("template_id", "template_ubo2xim");
+        formDataToSend.append("user_id", "W66pdX8ZR2wekMIgC");
+        formDataToSend.append("from_name", formData.from_name);
+        formDataToSend.append("from_email", formData.from_email);
+        formDataToSend.append("message", formData.message);
+
+        const res = await fetch("https://api.emailjs.com/api/v1.0/email/send", {
+          method: "POST",
+          body: formDataToSend,
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+        });
+
+        if (res.ok) {
+          showSuccessAlert();
+          setFormData({ from_name: "", from_email: "", message: "" });
+        } else {
+          throw new Error("Fallback failed");
+        }
+      } catch (fallbackError) {
+        MySwal.fire({
+          title: texts.error.title,
+          text: texts.error.text,
+          icon: "error",
+          confirmButtonColor: "#4f46e5",
+        });
+      }
     } finally {
       setIsSubmitting(false);
     }
