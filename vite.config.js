@@ -5,7 +5,7 @@ export default defineConfig({
   plugins: [react()],
   base: "/web-portfolio/",
   build: {
-    assetsInlineLimit: 0,
+    assetsInlineLimit: 1024,
     assetsDir: "assets",
     emptyOutDir: true,
     rollupOptions: {
