@@ -129,8 +129,17 @@ export const Contact = ({ language }) => {
       const templateID = "template_ubo2xim";
       const userID = "W66pdX8ZR2wekMIgC";
 
-      // Usamos el formulario actual en lugar de crear uno temporal
-      await emailjs.sendForm(serviceID, templateID, e.target, userID);
+      // Envía directamente los datos sin manipular el DOM
+      await emailjs.send(
+        serviceID,
+        templateID,
+        {
+          from_name: formData.from_name,
+          from_email: formData.from_email,
+          message: formData.message,
+        },
+        userID
+      );
 
       showSuccessAlert();
       setFormData({ from_name: "", from_email: "", message: "" });

@@ -8,7 +8,7 @@ import css from "../../assets/icons/css.png";
 import express from "../../assets/icons/express.png";
 import graph from "../../assets/icons/graph.png";
 import html from "../../assets/icons/html.png";
-import javascript from "../../assets/icons/javascript.png";
+import javascript from "../../assets/icons/javascript4.png";
 import mysql from "../../assets/icons/MySQL.png";
 import node from "../../assets/icons/node.png";
 import redux from "../../assets/icons/redux.png";

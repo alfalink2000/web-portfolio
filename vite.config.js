@@ -5,17 +5,20 @@ export default defineConfig({
   plugins: [react()],
   base: "/web-portfolio/",
   build: {
-    assetsInlineLimit: 4096,
+    assetsInlineLimit: 0,
     assetsDir: "assets",
     emptyOutDir: true,
     rollupOptions: {
       output: {
         assetFileNames: (assetInfo) => {
-          const extType = assetInfo.name.split(".").at(1);
-          if (/png|jpe?g|svg|gif|webp|avif/i.test(extType)) {
-            return `assets/images/[name]-[hash][extname]`;
+          // Organiza mejor los assets en producción
+          if (assetInfo.name?.endsWith(".png")) {
+            return "assets/images/[name]-[hash][extname]";
           }
-          return `assets/[name]-[hash][extname]`;
+          if (assetInfo.name?.endsWith(".webp")) {
+            return "assets/images/[name]-[hash][extname]";
+          }
+          return "assets/[name]-[hash][extname]";
         },
       },
     },
