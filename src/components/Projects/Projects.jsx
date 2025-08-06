@@ -1,5 +1,26 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import imgdescription1 from "../../assets/images/p1.png";
+import imgdescription2 from "../../assets/images/p2.png";
+import imgdescription3 from "../../assets/images/p3.png";
+
+import imgdescription11 from "../../assets/images/p1-1.png";
+import imgdescription22 from "../../assets/images/p2-2.jpg";
+import imgdescription33 from "../../assets/images/p3-1.png";
+
+import img from "../../assets/images/carr1.png";
+import img1 from "../../assets/images/carr2.png";
+import img2 from "../../assets/images/carr3.png";
+import img3 from "../../assets/images/carr4.png";
+import img4 from "../../assets/images/carr13.png";
+import img5 from "../../assets/images/carr5.png";
+import img6 from "../../assets/images/carr6.png";
+import img7 from "../../assets/images/carr7.png";
+import img8 from "../../assets/images/carr8.png";
+import img9 from "../../assets/images/carr9.png";
+import img10 from "../../assets/images/carr10.png";
+import img11 from "../../assets/images/carr11.png";
+import img12 from "../../assets/images/carr12.png";
 import "../../styles/Projects/Projects.css";
 
 export const Projects = ({ language }) => {
@@ -16,7 +37,7 @@ export const Projects = ({ language }) => {
         title: "Blog Personal",
         description:
           "Tu espacio en internet para compartir ideas, proyectos o contenido profesional",
-        images: ["/assets/images/p1.png", "/assets/images/p1-1.png"],
+        images: [imgdescription1, imgdescription11],
         details: "Desarrollo de blogs a medida con:",
         features: [
           "Diseño limpio y minimalista adaptable a móviles",
@@ -33,7 +54,7 @@ export const Projects = ({ language }) => {
         title: "Tienda Online",
         description:
           "Vende productos o servicios con una plataforma autogestionable",
-        images: ["/assets/images/p2.png", "/assets/images/p2-2.jpg"],
+        images: [imgdescription2, imgdescription22],
         details: "Solución completa para comercio electrónico:",
         features: [
           "Catálogo de productos con filtros y búsqueda inteligente",
@@ -50,7 +71,7 @@ export const Projects = ({ language }) => {
         title: "Tracker de Criptomonedas",
         description:
           "Monitoriza precios, tendencias y tus inversiones en el mercado crypto",
-        images: ["/assets/images/p3.png", "/assets/images/p3-1.png"],
+        images: [imgdescription3, imgdescription33],
         details: "Aplicación web con datos en tiempo real:",
         features: [
           "Cotizaciones actualizadas de +1000 criptomonedas",
@@ -119,25 +140,9 @@ export const Projects = ({ language }) => {
   };
 
   const designSamples = [
-    [
-      "../../../public/assets/images/carr1.png",
-      "../../../public/assets/images/carr2.png",
-      "../../../public/assets/images/carr3.png",
-      "../../../public/assets/images/carr4.png",
-      "../../../public/assets/images/carr13.png",
-    ],
-    [
-      "../../../public/assets/images/carr5.png",
-      "../../../public/assets/images/carr6.png",
-      "../../../public/assets/images/carr7.png",
-      "../../../public/assets/images/carr8.png",
-    ],
-    [
-      "../../../public/assets/images/carr9.png",
-      "../../../public/assets/images/carr10.png",
-      "../../../public/assets/images/carr11.png",
-      "../../../public/assets/images/carr12.png",
-    ],
+    [img, img1, img2, img3, img4],
+    [img5, img6, img7, img8],
+    [img9, img10, img11, img12],
   ];
 
   const texts = {

@@ -1,5 +1,10 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import img from "../../assets/images/8.1.jpeg";
+import img1 from "../../assets/images/upr.jpg";
+import img2 from "../../assets/images/title.jpeg";
+import img3 from "../../assets/images/10.jpeg";
+
 import "../../styles/About/About.css";
 
 export const About = ({ language }) => {
@@ -48,7 +53,7 @@ export const About = ({ language }) => {
           >
             <div className="image-wrapper">
               <motion.img
-                src="../../../public/assets/images/8.1.jpeg"
+                src={img}
                 alt="Leonel Machin"
                 className="profile-image"
                 whileHover={{ scale: 1.05 }}
@@ -255,19 +260,19 @@ export const About = ({ language }) => {
           >
             <div className="image-stack">
               <motion.img
-                src="../../../public/assets/images/upr.jpg"
+                src={img1}
                 alt="Proyecto 1"
                 className="stacked-image image-1"
                 whileHover={{ zIndex: 4, scale: 1.05, rotate: 0 }}
               />
               <motion.img
-                src="../../../public/assets/images/title.jpeg"
+                src={img2}
                 alt="Proyecto 2"
                 className="stacked-image image-2"
                 whileHover={{ zIndex: 4, scale: 1.05, rotate: 0 }}
               />
               <motion.img
-                src="../../../public/assets/images/10.jpeg"
+                src={img3}
                 alt="Proyecto 3"
                 className="stacked-image image-3"
                 whileHover={{ zIndex: 4, scale: 1.05, rotate: 0 }}

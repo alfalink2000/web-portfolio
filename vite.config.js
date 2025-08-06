@@ -1,7 +1,10 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-})
+  base: "/web-portfolio/",
+  build: {
+    assetsInlineLimit: 4096, // Límite en bytes para inline assets (imágenes pequeñas se convierten en base64)
+  },
+});

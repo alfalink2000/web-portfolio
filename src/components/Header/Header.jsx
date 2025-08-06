@@ -16,7 +16,8 @@ import {
   RiArrowDownLine,
 } from "react-icons/ri";
 import { LanguageSwitcher } from "../LanguageSwitcher/LanguageSwitcher";
-import img from "../../../public/assets/images/fondo1.jpg";
+import img from "../../assets/images/fondo1.jpg";
+import imgperfil from "../../assets/images/imgperfil1.png";
 
 import "../../styles/Header/HeaderDos.css";
 
@@ -473,7 +474,7 @@ export const Header = ({ language, setLanguage }) => {
                   transition={{ duration: 0.8 }}
                 >
                   <img
-                    src="../../../public/assets/images/imgperfil1.png"
+                    src={imgperfil}
                     alt="Perfil profesional"
                     className="hero-profile-img"
                   />
