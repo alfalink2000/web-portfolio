@@ -2,17 +2,17 @@ import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import "../../styles/Skills/Skills.css";
 
-import reacticon from "../../assets/icons/react.png";
-import api from "../../assets/icons/API.png";
-import css from "../../assets/icons/css.png";
-import express from "../../assets/icons/express.png";
-import graph from "../../assets/icons/graph.png";
-import html from "../../assets/icons/html.png";
-import javascript from "../../assets/icons/javascript4.png";
-import mysql from "../../assets/icons/MySQL.png";
-import node from "../../assets/icons/node.png";
-import redux from "../../assets/icons/redux.png";
-import vite from "../../assets/icons/vite.png";
+import reacticon from "../../assets/icons/react.png?url";
+import api from "../../assets/icons/api.png?url";
+import css from "../../assets/icons/css.png?url";
+import express from "../../assets/icons/express.png?url";
+import graph from "../../assets/icons/graph.png?url";
+import html from "../../assets/icons/html.png?url";
+import javascript from "../../assets/icons/javascript.png?url";
+import mysql from "../../assets/icons/mysql.png?url";
+import node from "../../assets/icons/node.png?url";
+import redux from "../../assets/icons/redux.png?url";
+import vite from "../../assets/icons/vite.png?url";
 
 export const Skills = ({ language }) => {
   const texts = {

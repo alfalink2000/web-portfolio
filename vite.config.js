@@ -5,20 +5,17 @@ export default defineConfig({
   plugins: [react()],
   base: "/web-portfolio/",
   build: {
-    assetsInlineLimit: 1024,
+    assetsInlineLimit: 0, // Desactiva el inlining de assets
     assetsDir: "assets",
     emptyOutDir: true,
     rollupOptions: {
       output: {
         assetFileNames: (assetInfo) => {
-          // Organiza mejor los assets en producción
-          if (assetInfo.name?.endsWith(".png")) {
-            return "assets/images/[name]-[hash][extname]";
+          const ext = assetInfo.name.split(".").pop();
+          if (["png", "jpg", "jpeg", "webp", "svg"].includes(ext)) {
+            return `assets/icons/[name][extname]`; // Mantiene los nombres originales
           }
-          if (assetInfo.name?.endsWith(".webp")) {
-            return "assets/images/[name]-[hash][extname]";
-          }
-          return "assets/[name]-[hash][extname]";
+          return `assets/[name][extname]`;
         },
       },
     },

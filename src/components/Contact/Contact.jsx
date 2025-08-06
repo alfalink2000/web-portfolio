@@ -129,17 +129,15 @@ export const Contact = ({ language }) => {
       const templateID = "template_ubo2xim";
       const userID = "W66pdX8ZR2wekMIgC";
 
-      // Envía directamente los datos sin manipular el DOM
-      await emailjs.send(
-        serviceID,
-        templateID,
-        {
-          from_name: formData.from_name,
-          from_email: formData.from_email,
-          message: formData.message,
-        },
-        userID
-      );
+      // Crear un objeto con los datos del formulario
+      const templateParams = {
+        from_name: formData.from_name,
+        from_email: formData.from_email,
+        message: formData.message,
+      };
+
+      // Usar emailjs.send en lugar de emailjs.sendForm para evitar manipulación del DOM
+      await emailjs.send(serviceID, templateID, templateParams, userID);
 
       showSuccessAlert();
       setFormData({ from_name: "", from_email: "", message: "" });
