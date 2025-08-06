@@ -295,8 +295,15 @@ const SkillBar = ({ skill, barAnimation }) => (
         transition={{ type: "spring", stiffness: 400, damping: 10 }}
       >
         {typeof skill.icon === "string" &&
-        (skill.icon.startsWith("/") || skill.icon.startsWith("http")) ? (
-          <img src={skill.icon} alt={skill.name} className="skill-icon-img" />
+        /\.(png|jpg|jpeg|webp)$/.test(skill.icon) ? (
+          <img
+            src={skill.icon}
+            alt={skill.name}
+            className="skill-icon-img"
+            width="24"
+            height="24"
+            loading="lazy"
+          />
         ) : (
           skill.icon
         )}

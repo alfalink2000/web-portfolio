@@ -5,20 +5,17 @@ export default defineConfig({
   plugins: [react()],
   base: "/web-portfolio/",
   build: {
-    assetsInlineLimit: 1024, // Reduce a 1KB (solo para SVG muy pequeños)
+    assetsInlineLimit: 4096,
     assetsDir: "assets",
     emptyOutDir: true,
     rollupOptions: {
       output: {
         assetFileNames: (assetInfo) => {
-          // Organiza mejor los assets en producción
-          if (assetInfo.name?.endsWith(".png")) {
-            return "assets/images/[name]-[hash][extname]";
+          const extType = assetInfo.name.split(".").at(1);
+          if (/png|jpe?g|svg|gif|webp|avif/i.test(extType)) {
+            return `assets/images/[name]-[hash][extname]`;
           }
-          if (assetInfo.name?.endsWith(".webp")) {
-            return "assets/images/[name]-[hash][extname]";
-          }
-          return "assets/[name]-[hash][extname]";
+          return `assets/[name]-[hash][extname]`;
         },
       },
     },
