@@ -665,6 +665,8 @@
   left: 50%;
   transform: translateX(-50%);
   animation: bounce 2s infinite;
+  z-index: 100;
+  pointer-events: auto;
 }
 
 .hero-scroll-icon {
@@ -829,7 +831,7 @@
     position: relative;
     width: 240px;
     height: 240px;
-    top: 50px;
+    top: 55px;
   }
 
   .hero-title {
@@ -934,14 +936,13 @@
   border-color: #11e960 !important;
 }
 
-/* Mensaje emergente - Nueva posición */
 .weld-message {
   position: absolute;
-  left: -180px;
-  top: 50%;
-  transform: translateY(-50%);
+  left: 50%;
+  transform: translateX(-50%);
+  top: -50px; /* Posición sobre el botón */
   background: white;
-  padding: 0.75rem 1.5rem;
+  padding: 0.5rem 1rem;
   border-radius: 2rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   font-weight: 600;
@@ -949,24 +950,26 @@
   z-index: 20;
   white-space: nowrap;
   opacity: 0;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: opacity 0.3s ease;
+  max-width: 90vw; /* Límite del ancho */
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .weld-message.active {
   opacity: 1;
 }
 
+/* Flecha del mensaje (ajustada para móvil) */
 .weld-message:after {
   content: "";
   position: absolute;
-  right: -10px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 0;
-  height: 0;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  border-left: 10px solid white;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid white;
 }
 
 /* Ajustes para móviles (menos de 768px) */
@@ -994,15 +997,18 @@
       border-bottom: none;
     }
   }
-
-  @media (max-width: 375px) {
-    .weld-message {
-      top: -20px !important;
-      font-size: 0.8rem;
-    }
-  }
 }
 
+@media (max-width: 375px) {
+  .weld-message {
+    white-space: normal; /* Permite múltiples líneas */
+    text-align: center;
+    padding: 0.5rem;
+    font-size: 0.85rem;
+    top: -70px; /* Más espacio para texto multilínea */
+    max-width: 250px;
+  }
+}
 @media (max-width: 768px) {
   .hero-subtitle {
     background-color: rgba(255, 255, 255, 0.274);

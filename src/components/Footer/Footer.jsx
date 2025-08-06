@@ -53,13 +53,19 @@ export const Footer = ({ language }) => {
         <div className="footer-column social-section">
           <h4>{texts.social}</h4>
           <div className="social-links">
-            <a href="https://facebook.com/" className="social-link">
+            <a
+              href="https://www.facebook.com/share/16AEYuDD6n/"
+              className="social-link"
+            >
               <FaFacebook /> {texts.links.facebook}
             </a>
-            <a href="https://github.com/" className="social-link">
+            <a href="https://github.com/alfalink2000" className="social-link">
               <FaGithub /> {texts.links.github}
             </a>
-            <a href="https://linkedin.com/" className="social-link">
+            <a
+              href="https://www.linkedin.com/in/leonel-machin-remis-7104b3286/"
+              className="social-link"
+            >
               <FaLinkedin /> {texts.links.linkedin}
             </a>
           </div>

@@ -16,8 +16,9 @@ import {
   RiArrowDownLine,
 } from "react-icons/ri";
 import { LanguageSwitcher } from "../LanguageSwitcher/LanguageSwitcher";
-import img from "../../assets/images/fondo1.jpg";
-import imgperfil from "../../assets/images/imgperfil1.png";
+import img from "../../assets/images/fondo1.webp";
+import imgperfil from "../../assets/images/imgperfil1.webp";
+import pdf from "../../assets/documents/Currículum.pdf";
 
 import "../../styles/Header/HeaderDos.css";
 
@@ -91,7 +92,7 @@ export const Header = ({ language, setLanguage }) => {
   };
 
   const downloadCV = () => {
-    const fileUrl = "../../../public/assets/documents/Currículum.pdf";
+    const fileUrl = pdf;
 
     // Crear un enlace temporal
     const link = document.createElement("a");
@@ -118,9 +119,11 @@ export const Header = ({ language, setLanguage }) => {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >
-                <span className="header-logo-initial">P</span>
+                <span className="header-logo-initial" translate="no">
+                  P
+                </span>
               </motion.div>
-              <span className="header-logo-text">
+              <span className="header-logo-text" translate="no">
                 {language === "es" ? "Portafolio" : "Portfolio"}
               </span>
             </div>
@@ -304,6 +307,8 @@ export const Header = ({ language, setLanguage }) => {
                 <div className="hero-actions">
                   <motion.button
                     onClick={() => {
+                      setIsBorderActive(true);
+
                       const messages =
                         language === "es"
                           ? [
@@ -337,10 +342,17 @@ export const Header = ({ language, setLanguage }) => {
                               "Your project is in good hands!",
                             ];
 
-                      setRandomMessage(
-                        messages[Math.floor(Math.random() * messages.length)]
+                      // Seleccionar un mensaje diferente al actual
+                      let newMessage;
+                      do {
+                        newMessage =
+                          messages[Math.floor(Math.random() * messages.length)];
+                      } while (
+                        newMessage === randomMessage &&
+                        messages.length > 1
                       );
-                      setIsBorderActive(true);
+
+                      setRandomMessage(newMessage);
 
                       setTimeout(() => {
                         setIsBorderActive(false);
@@ -349,6 +361,7 @@ export const Header = ({ language, setLanguage }) => {
                     className="hero-btn-primary"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
+                    disabled={isBorderActive} // Deshabilita el botón durante la animación
                   >
                     {language === "es"
                       ? "Trabajemos Juntos"
@@ -374,34 +387,37 @@ export const Header = ({ language, setLanguage }) => {
                             size={24}
                           />
                         ),
-                        url: "https://github.com",
+                        url: "https://github.com/alfalink2000",
                       },
                       {
                         icon: (
                           <RiFacebookFill
-                            className="social-icon-linkedin"
+                            className="social-icon-facebook"
                             size={24}
+                            style={{ color: "#1877f2" }} // Azul Facebook como fallback
                           />
                         ),
-                        url: "https://linkedin.com",
+                        url: "https://www.facebook.com/share/16AEYuDD6n/",
                       },
                       {
                         icon: (
                           <RiWhatsappFill
-                            className="social-icon-twitter"
+                            className="social-icon-watsapp"
                             size={24}
+                            style={{ color: "#0faa48ff" }} // Verde WhatsApp
                           />
                         ),
-                        url: "https://twitter.com",
+                        url: "https://wa.me/5352880034",
                       },
                       {
                         icon: (
                           <RiTelegramFill
-                            className="social-icon-instagram"
+                            className="social-icon-Telegram"
                             size={24}
+                            style={{ color: "#cc0033c5" }} // Azul Telegram
                           />
                         ),
-                        url: "https://instagram.com",
+                        url: "https://t.me/alfalink2000",
                       },
                     ].map((social, index) => (
                       <motion.a
@@ -410,7 +426,11 @@ export const Header = ({ language, setLanguage }) => {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="hero-social-icon backdrop-blur-sm"
-                        whileHover={{ y: -3 }}
+                        whileHover={{
+                          y: -3,
+                          scale: 1.1,
+                          transition: { duration: 0.2 },
+                        }}
                         whileTap={{ scale: 0.9 }}
                       >
                         {social.icon}
@@ -530,8 +550,12 @@ export const Header = ({ language, setLanguage }) => {
             transition={{
               repeat: Infinity,
               repeatType: "reverse",
-              duration: 1.5,
+              duration: 2.5,
+              ease: "easeInOut",
+              repeatDelay: 0.5,
             }}
+            onClick={(e) => handleLinkClick(e, "conoceme")}
+            style={{ cursor: "pointer" }}
           >
             <div className="hero-scroll-icon">
               <RiArrowDownLine color="white" size={24} />

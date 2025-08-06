@@ -1,9 +1,9 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import img from "../../assets/images/8.1.jpeg";
-import img1 from "../../assets/images/upr.jpg";
-import img2 from "../../assets/images/title.jpeg";
-import img3 from "../../assets/images/10.jpeg";
+import img from "../../assets/images/8.1.webp";
+import img1 from "../../assets/images/upr.webp";
+import img2 from "../../assets/images/title.webp";
+import img3 from "../../assets/images/10.webp";
 
 import "../../styles/About/About.css";
 

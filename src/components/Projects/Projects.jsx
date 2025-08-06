@@ -1,26 +1,26 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import imgdescription1 from "../../assets/images/p1.png";
-import imgdescription2 from "../../assets/images/p2.png";
-import imgdescription3 from "../../assets/images/p3.png";
+import imgdescription1 from "../../assets/images/p1.webp";
+import imgdescription2 from "../../assets/images/p2.webp";
+import imgdescription3 from "../../assets/images/p3.webp";
 
-import imgdescription11 from "../../assets/images/p1-1.png";
-import imgdescription22 from "../../assets/images/p2-2.jpg";
-import imgdescription33 from "../../assets/images/p3-1.png";
+import imgdescription11 from "../../assets/images/p1-1.webp";
+import imgdescription22 from "../../assets/images/p2-2.webp";
+import imgdescription33 from "../../assets/images/p3-1.webp";
 
-import img from "../../assets/images/carr1.png";
-import img1 from "../../assets/images/carr2.png";
-import img2 from "../../assets/images/carr3.png";
-import img3 from "../../assets/images/carr4.png";
-import img4 from "../../assets/images/carr13.png";
-import img5 from "../../assets/images/carr5.png";
-import img6 from "../../assets/images/carr6.png";
-import img7 from "../../assets/images/carr7.png";
-import img8 from "../../assets/images/carr8.png";
-import img9 from "../../assets/images/carr9.png";
-import img10 from "../../assets/images/carr10.png";
-import img11 from "../../assets/images/carr11.png";
-import img12 from "../../assets/images/carr12.png";
+import img from "../../assets/images/carr1.webp";
+import img1 from "../../assets/images/carr2.webp";
+import img2 from "../../assets/images/carr3.webp";
+import img3 from "../../assets/images/carr4.webp";
+import img4 from "../../assets/images/carr13.webp";
+import img5 from "../../assets/images/carr5.webp";
+import img6 from "../../assets/images/carr6.webp";
+import img7 from "../../assets/images/carr7.webp";
+import img8 from "../../assets/images/carr8.webp";
+import img9 from "../../assets/images/carr9.webp";
+import img10 from "../../assets/images/carr10.webp";
+import img11 from "../../assets/images/carr11.webp";
+import img12 from "../../assets/images/carr12.webp";
 import "../../styles/Projects/Projects.css";
 
 export const Projects = ({ language }) => {
