@@ -4,12 +4,12 @@ import img from "../../assets/images/8.1.webp";
 import img1 from "../../assets/images/upr.webp";
 import img2 from "../../assets/images/title.webp";
 import img3 from "../../assets/images/10.webp";
-
+import pdf from "../../assets/documents/Currículum.pdf";
 import "../../styles/About/About.css";
 
 export const About = ({ language }) => {
   const downloadCV = () => {
-    const fileUrl = "../../../public/assets/documents/Currículum.pdf";
+    const fileUrl = pdf;
 
     const link = document.createElement("a");
     link.href = fileUrl;

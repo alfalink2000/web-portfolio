@@ -149,7 +149,7 @@ export const Projects = ({ language }) => {
     title: language === "es" ? "Mis Proyectos" : "My Projects",
     designsTitle:
       language === "es"
-        ? "Variedad de Diseños para tu Proyecto"
+        ? "Variedad de Diseños para tu "
         : "Variety of Designs for your Project",
     designsHighlight: language === "es" ? "Proyecto" : "Project",
     designsDescription:
