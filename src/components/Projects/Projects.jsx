@@ -36,7 +36,7 @@ export const Projects = ({ language }) => {
         id: 1,
         title: "Blog Personal",
         description:
-          "Tu espacio en internet para compartir ideas, proyectos o contenido profesional",
+          "Tu espacio digital para crear, conectar y crecer profesionalmente",
         images: [imgdescription1, imgdescription11],
         details: "Desarrollo de blogs a medida con:",
         features: [
@@ -68,7 +68,7 @@ export const Projects = ({ language }) => {
       },
       {
         id: 3,
-        title: "Tracker de Criptomonedas",
+        title: "Innovador financiero",
         description:
           "Monitoriza precios, tendencias y tus inversiones en el mercado crypto",
         images: [imgdescription3, imgdescription33],
@@ -89,7 +89,7 @@ export const Projects = ({ language }) => {
         id: 1,
         title: "Personal Blog",
         description:
-          "Your space on the internet to share ideas, projects or professional content",
+          "Your Digital Space to Create, Connect, and Grow Professionally",
         images: ["/assets/images/p1.png", "/assets/images/p1-1.png"],
         details: "Custom blog development with:",
         features: [
@@ -121,7 +121,7 @@ export const Projects = ({ language }) => {
       },
       {
         id: 3,
-        title: "Cryptocurrency Tracker",
+        title: "Financially innovative",
         description:
           "Monitor prices, trends and your investments in the crypto market",
         images: ["/assets/images/p3.png", "/assets/images/p3-1.png"],
