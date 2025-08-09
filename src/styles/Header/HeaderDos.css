@@ -978,10 +978,12 @@
     left: 50% !important;
     top: -30px !important;
     transform: translateX(-50%) !important;
+    white-space: normal;
+    text-align: center;
 
     /* Tamaño */
     width: 90%;
-    max-width: 280px;
+    max-width: 300px;
     padding: 0.5rem 1rem;
     font-size: 0.9rem;
 
@@ -1001,12 +1003,15 @@
 
 @media (max-width: 375px) {
   .weld-message {
+    position: absolute;
     white-space: normal; /* Permite múltiples líneas */
     text-align: center;
     padding: 0.5rem;
     font-size: 0.85rem;
-    top: -90px; /* Más espacio para texto multilínea */
-    max-width: 250px;
+    top: -50px; /* Más espacio para texto multilínea */
+    max-width: 300px;
+    margin-top: 275px;
+    background-color: #00c986;
   }
 }
 
