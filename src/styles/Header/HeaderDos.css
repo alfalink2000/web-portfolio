@@ -1005,10 +1005,11 @@
     text-align: center;
     padding: 0.5rem;
     font-size: 0.85rem;
-    top: -70px; /* Más espacio para texto multilínea */
+    top: -90px; /* Más espacio para texto multilínea */
     max-width: 250px;
   }
 }
+
 @media (max-width: 768px) {
   .hero-subtitle {
     background-color: rgba(255, 255, 255, 0.274);
